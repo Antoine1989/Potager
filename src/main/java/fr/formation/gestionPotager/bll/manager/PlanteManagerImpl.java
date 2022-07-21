@@ -2,31 +2,40 @@ package fr.formation.gestionPotager.bll.manager;
 
 import java.util.List;
 
-import fr.formation.gestionPotager.bo.Plante;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import fr.formation.gestionPotager.bo.Plante;
+import fr.formation.gestionPotager.dal.PlanteDAO;
+
+@Service
 public class PlanteManagerImpl implements ManagerGlobal<Plante>{
 
+	
+	@Autowired
+	private PlanteDAO planteDao;
+	
 	@Override
-	public void add(Plante t) {
-		// TODO Auto-generated method stub
+	public void add(Plante plante) {
+		planteDao.save(plante);
 		
 	}
 
 	@Override
 	public List<Plante> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		 return (List<Plante>) planteDao.findAll();
 	}
 
 	@Override
-	public void delete(Plante t) {
-		// TODO Auto-generated method stub
+	public void delete(Plante plante) {
+		planteDao.delete(plante);
 		
 	}
 
 	@Override
-	public void update(Plante t) {
-		// TODO Auto-generated method stub
+	public void update(Plante plante) {
+		planteDao.save(plante);
 		
 	}
 

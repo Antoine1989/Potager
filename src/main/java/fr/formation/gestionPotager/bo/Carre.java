@@ -33,7 +33,8 @@ public class Carre {
 	private Potager potager;
 	
 	@OneToMany(mappedBy="carre")
-	Set<Plante> lstPlantes = new HashSet<>();
+	@ToString.Exclude
+	Set<Plantation> lstPlantations = new HashSet<>();
 	
 	public Carre( Integer surface, String typeSol, String exposition) {
 		
@@ -42,9 +43,9 @@ public class Carre {
 		this.exposition = exposition;
 	}
 
-	public void addPlante(Plante plante) {
-		lstPlantes.add(plante);
-		plante.setCarre(this);
+	public void addPlantation(Plantation plantation) {
+		lstPlantations.add(plantation);
+		plantation.setCarre(this);
 	
 	}
 	

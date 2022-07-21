@@ -31,11 +31,22 @@ public class Potager {
 	private String ville;
 	
 	@OneToMany(mappedBy="potager")
+	@ToString.Exclude
 	Set<Carre> lstCarres = new HashSet<Carre>();
+	
 	
 	public void addCarre(Carre carre) {
 		lstCarres.add(carre);
 		carre.setPotager(this);
 	
+	}
+
+
+	public Potager(String localisation, String nom, Integer surface, String ville) {
+		
+		this.localisation = localisation;
+		this.nom = nom;
+		this.surface = surface;
+		this.ville = ville;
 	}
 }
