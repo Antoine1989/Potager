@@ -10,29 +10,34 @@ import fr.formation.gestionPotager.dal.PlantationDAO;
 @Service
 public class PlantationManagerImpl implements ManagerGlobal<Plantation> {
 	@Autowired
-	private PlantationDAO plantationDAO;
+	private PlantationDAO plantationDao;
 
 	@Override
 	public void add(Plantation plantation) {
-		plantationDAO.save(plantation);
+		plantationDao.save(plantation);
 		
 	}
 
 	@Override
 	public void delete(Plantation plantation) {
 		// TODO Auto-generated method stub
-		plantationDAO.delete(plantation);
+		plantationDao.delete(plantation);
 	}
 
 	@Override
 	public void update(Plantation plantation) {
 		// TODO Auto-generated method stub
-		plantationDAO.save(plantation);
+		plantationDao.save(plantation);
 	}
 
 	@Override
 	public List<Plantation> getAll() {
-		return (List<Plantation>) plantationDAO.findAll();
+		return (List<Plantation>) plantationDao.findAll();
+	}
+
+	@Override
+	public Plantation getById(Integer id) {
+		return plantationDao.findById(id).orElse(null);
 	}
 
 }

@@ -39,4 +39,11 @@ public class PlanteManagerImpl implements ManagerGlobal<Plante>{
 		
 	}
 
+
+	@Override
+	public Plante getById(Integer id) {
+		
+		return planteDao.findById(id).orElse(null);
+	}
+
 }

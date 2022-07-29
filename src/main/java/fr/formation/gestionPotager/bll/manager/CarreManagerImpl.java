@@ -36,4 +36,9 @@ public class CarreManagerImpl implements ManagerGlobal<Carre>{
 		
 	}
 
+	@Override
+	public Carre getById(Integer id) {
+		return carreDao.findById(id).orElse(null);
+	}
+
 }

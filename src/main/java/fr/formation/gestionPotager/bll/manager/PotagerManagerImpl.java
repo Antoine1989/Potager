@@ -40,4 +40,9 @@ public class PotagerManagerImpl implements ManagerGlobal<Potager> {
 		potagerDao.save(potager);
 		
 	}
+
+	@Override
+	public Potager getById(Integer id) {
+		return potagerDao.findById(id).orElse(null);
+	}
 }

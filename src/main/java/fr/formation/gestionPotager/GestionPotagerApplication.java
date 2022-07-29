@@ -14,6 +14,7 @@ import fr.formation.gestionPotager.bo.Carre;
 import fr.formation.gestionPotager.bo.Plantation;
 import fr.formation.gestionPotager.bo.Plante;
 import fr.formation.gestionPotager.bo.Potager;
+import fr.formation.gestionPotager.dal.PlantationDAO;
 
 @SpringBootApplication
 public class GestionPotagerApplication implements CommandLineRunner{
@@ -26,6 +27,8 @@ public class GestionPotagerApplication implements CommandLineRunner{
 	@Autowired
 	private ManagerGlobal<Plantation> plantationManager;
 	
+	@Autowired
+	PlantationDAO plantationDao;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(GestionPotagerApplication.class, args);
@@ -77,6 +80,10 @@ public class GestionPotagerApplication implements CommandLineRunner{
 	for (Plantation plantation : carre2.getLstPlantations()) {
 		
 	System.out.println(plantation.getPlante().getType());
+	
+	plantationDao.findPlantationPlante(plantation1);
+	System.out.println(plantationDao.findPlantationPlante(plantation1));
+	
 	
 	}
 

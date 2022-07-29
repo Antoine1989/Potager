@@ -1,9 +1,7 @@
 package fr.formation.gestionPotager.bo;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

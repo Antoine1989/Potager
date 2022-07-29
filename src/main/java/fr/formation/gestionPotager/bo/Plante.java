@@ -1,8 +1,12 @@
 package fr.formation.gestionPotager.bo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.Data;
@@ -22,8 +26,8 @@ public class Plante {
 	private Integer surface;
 	private String variete;
 	
-	@OneToOne
-	private Plantation plantation;
+	@OneToMany(mappedBy="plante")
+	private Set<Plantation> lstPlantations=new HashSet<Plantation>();
 	
 	public Plante(String nom, String type, Integer surface, String variete) {
 		
@@ -33,8 +37,10 @@ public class Plante {
 		this.variete = variete;
 	}
 
-
-
+	public void addPlantationPlante(Plantation plantation) {
+		lstPlantations.add(plantation);
+		plantation.setPlante(this);
+	}
 	
 	
 	
